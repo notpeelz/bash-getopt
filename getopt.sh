@@ -22,9 +22,17 @@ _GO_add_opt() {
   fi
 
   if [[ ! -z "$long_name" ]]; then
+    if [[ ! -z "${_GO_handler["--$long_name"]+1}" ]]; then
+      echo "ERROR: long opt '--$long_name' already exists"
+      exit 2
+    fi
     _GO_handler["--$long_name"]="$fn"
   fi
   if [[ ! -z "$short_name" ]]; then
+    if [[ ! -z "${_GO_handler["-$short_name"]+1}" ]]; then
+      echo "ERROR: short opt '-$short_name' already exists"
+      exit 2
+    fi
     _GO_handler["-$short_name"]="$fn"
   fi
 
