@@ -151,14 +151,14 @@ GO_print_help_opts_full() {
     local value="${_GO_value_name[i]}"
 
     local line="$(
-      if [[ ! -z "$long" ]]; then
-        echo -n "--$long"
+      if [[ ! -z "$short" ]]; then
+        echo -n "-$short"
       fi
       if [[ ! -z "$long" && ! -z "$short" ]]; then
         echo -n ", "
       fi
-      if [[ ! -z "$short" ]]; then
-        echo -n "-$short"
+      if [[ ! -z "$long" ]]; then
+        echo -n "--$long"
       fi
       if [[ ! -z "$value" ]]; then
         echo -n " $value"
