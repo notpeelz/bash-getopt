@@ -219,7 +219,6 @@ _GO_handle_opt() {
     echo "ERROR: no option option handler found for: $opt"
     exit 2
   fi
-  local fn="$(echo "${_GO_handler["$opt"]}")"
   "${_GO_handler["$opt"]}" "$opt" "$@"
 }
 
