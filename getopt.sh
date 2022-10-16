@@ -267,6 +267,8 @@ GO_parse() {
   for fn in "${_GO_parse_hooks[@]}"; do
     "$fn"
   done
+
+  GO_args=("$@")
 }
 
 if [[ -z "${GO_NO_HELP:-}" ]]; then
